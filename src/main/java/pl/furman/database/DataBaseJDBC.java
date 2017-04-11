@@ -12,10 +12,20 @@ import pl.furman.bank_machine.Account;
 import pl.furman.bank_machine.Props;
 import pl.furman.interfaces.DatabaseInterface;
 
+/**
+ * Class used to establish connection with database via JDBC.
+ * @author Docent Furman
+ */
 public class DataBaseJDBC implements DatabaseInterface{
 
 	private static Properties access = new Props().getProps();
 	
+	/**
+	 * Method used to retrieve Account object (identified by unique number) from database.
+	 * @param number Unique String number identifier of account.
+	 * @return Account Returns Account object.
+	 * @exception ClassNotFoundException, SQLException.
+	 */
 	public Account getAccountByNumber(String number){
 		
 		Account account = null;
@@ -47,6 +57,12 @@ public class DataBaseJDBC implements DatabaseInterface{
 		return account;
 	}
 	
+	/**
+	 * Method used to verify whether account with given number exists in database.
+	 * @param number String number of account.
+	 * @return boolean Returns true if account with given number exists, returns false otherwise.
+	 * @exception ClassNotFoundException, SQLException.
+	 */
 	public boolean verifyAccountNumber(String number){
 		
 		try {
@@ -81,6 +97,13 @@ public class DataBaseJDBC implements DatabaseInterface{
 		return false;
 	}
 	
+	/**
+	 * Method used to change balance of Account object by certain Integer amount
+	 * @param account Account object which balance has to be changed
+	 * @param amount Integer number by which Account object balance has to be modified.
+	 * @return boolean Returs true if operation was successful, returns false otherwise.
+	 * @exception ClassNotFoundException, SQLException.
+	 */
 	public boolean changeBalance(Account account, int amount){
 		
 		try {

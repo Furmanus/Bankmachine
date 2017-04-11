@@ -1,3 +1,8 @@
+/**
+ * Class representing properties used to establish connection to database by JDBC. Has one private field, Properties object which has three properties: host, username and password
+ * @author Łukasz Lach
+ */
+
 package pl.furman.bank_machine;
 
 import java.io.FileInputStream;
@@ -11,6 +16,11 @@ public class Props {
 
 	private Properties access;
 	
+	/**
+	 * Public constructor which created ObjectInputStream to read Properties from file "access.properties". Properties are stored in access private
+	 * field.
+	 * @exception FileNotFoundException, IOException, ClassNotFoundException
+	 */
 	public Props(){
 		
 		try {
@@ -30,6 +40,12 @@ public class Props {
 		}
 	}
 	
+	/**
+	 * Method used to set new properties in private access field.
+	 * @param host Name of host.
+	 * @param username Name of user.
+	 * @param password Password
+	 */
 	public void setProps(String host, String username, String password){
 		
 		access.setProperty("host", host);
@@ -37,6 +53,10 @@ public class Props {
 		access.setProperty("password", password);
 	}
 	
+	/**
+	 * Getter for access private field.
+	 * @return Properties Returns private Properties access object.
+	 */
 	public Properties getProps(){
 		
 		return this.access;

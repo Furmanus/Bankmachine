@@ -2,6 +2,12 @@ package pl.furman.languages;
 
 import java.util.HashMap;
 
+/**
+ * Abstract class which contains HashMap which keys are languages used in application. Each language is another HashMap which contains messages
+ * identified by String key in different languages.
+ * @author Docent Furman
+ *
+ */
 public abstract class Languages {
 
 	private static HashMap<String, HashMap<String, String>> messages = new HashMap<String, HashMap<String,String>>();
@@ -78,6 +84,11 @@ public abstract class Languages {
 		messages.put("polski", polski);
 	}
 	
+	/**
+	 * Getter for HashMap with languages and messages.
+	 * @return HashMap<String, HashMap<String, String>> Returns HashMap with languages as keys. Values are another HashMaps with messages identifier
+	 * as keys and messages in desired language as values.
+	 */
 	public static HashMap<String, HashMap<String, String>> getMessages(){
 		
 		return messages;

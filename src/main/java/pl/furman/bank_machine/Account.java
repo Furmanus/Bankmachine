@@ -1,3 +1,9 @@
+/**
+ * Class which objects represents rows from database
+ * @author Łukasz Lach
+ * @version 1.0
+ */
+
 package pl.furman.bank_machine;
 
 import java.io.FileWriter;
@@ -40,10 +46,21 @@ public class Account {
 	@Column(name = "owner")
 	private String owner;
 	
+	/**
+	 * Empty constructor used for JPA database connection. Private field of class instance are automatically filled by EclipseLink
+	 * @return Nothing
+	 */
 	public Account(){
 		
 	}
 	
+	/**
+	 * Constructor for JDBC database connection.
+	 * @param balance Integer representing balance of account
+	 * @param number String representing account number
+	 * @param pin String representing PIN number linked to account
+	 * @param databaseAccess Interface used to establish connection to database and performing operations on account
+	 */
 	public Account(int balance, String number, String pin, String owner, DatabaseInterface databaseAccess) {
 		
 		this.balance = balance;
@@ -52,27 +69,52 @@ public class Account {
 		this.owner = owner;
 		this.databaseAccess = databaseAccess;
 	}
-	
+	/**
+	 * 
+	 * @return int Returns number representing unique identifier of database for
+	 */
 	public int getId(){
 		return id;
 	}
-
+	
+	/**
+	 * 
+	 * @return int Returns current account balance
+	 */
 	public int getBalance() {
 		return balance;
 	}
 
+	/**
+	 * 
+	 * @return String Returns account number
+	 */
 	public String getNumber() {
 		return number;
 	}
 
+	/**
+	 * 
+	 * @return String Returns PIN number linked to account
+	 */
 	public String getPin() {
 		return pin;
 	}
 
+	/**
+	 * 
+	 * @return String Returns account owner name
+	 */
 	public String getOwner() {
 		return owner;
 	}
 	
+	/**
+	 * Method to change account's balance by certain amount
+	 * @param amount Negative or positive integer by which account balance should be changed
+	 * @throws WithdrawException
+	 * @throws AddMoneyException
+	 */
 	public void changeBalance(int amount) throws WithdrawException, AddMoneyException{
 		
 		if(amount < 1 && (-amount > this.balance)){
@@ -87,6 +129,11 @@ public class Account {
 		addLog(amount);
 	}
 	
+	/**
+	 * Withdraws certain amount from account balance
+	 * @param amount Integer number: amount which will be substracted from account balance
+	 * @throws WithdrawException
+	 */
 	public void withdrawMoney(int amount) throws WithdrawException{
 		
 		if(amount > this.balance || amount < 1){
@@ -97,6 +144,11 @@ public class Account {
 		databaseAccess.changeBalance(this, -amount);
 	}
 	
+	/**
+	 * Adds certain amount to account balance
+	 * @param amount Integer number: amount which will be added to account balance
+	 * @throws AddMoneyException
+	 */
 	public void addFunds(int amount) throws AddMoneyException{
 		
 		if(amount > 500){
@@ -107,6 +159,10 @@ public class Account {
 		databaseAccess.changeBalance(this, amount);
 	}
 	
+	/**
+	 * Method used to add logs about all operations made on account to file logs.txt. 
+	 * @param amount Integer number by which account balance is modified
+	 */
 	private void addLog(int amount){
 		
 		String operation = (amount > 0) ? " added " : " withdrawn ";
@@ -123,6 +179,10 @@ public class Account {
 		}
 	}
 
+	/**
+	 * Setter for databaseAccess object
+	 * @param databaseAccess Instance of object used to establish connection to database and perform operations
+	 */
 	public void setDatabaseAccess(DatabaseInterface databaseAccess) {
 		
 		this.databaseAccess = databaseAccess;

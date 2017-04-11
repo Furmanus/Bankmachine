@@ -24,11 +24,22 @@ import pl.furman.bank_machine.Account;
 import pl.furman.bank_machine.Props;
 import pl.furman.interfaces.DatabaseInterface;
 
+/**
+ * Class used to establish database connection via EclipseLink.
+ * @author Docent Furman
+ *
+ */
+
 public class DataBaseJPA implements DatabaseInterface{
 	
 	private EntityManagerFactory factory = Persistence.createEntityManagerFactory("bankmachine");
  	private EntityManager em = factory.createEntityManager();
 	
+ 	/**
+	 * Method used to retrieve Account object (identified by unique number) from database.
+	 * @param number Unique String number identifier of account.
+	 * @return Account Returns Account object.
+	 */
 	public Account getAccountByNumber(String number){
 		
 		Account account = null;
@@ -40,6 +51,13 @@ public class DataBaseJPA implements DatabaseInterface{
 		
 		return account;
 	}
+	
+	/**
+	 * Method used to verify whether account with given number exists in database.
+	 * @param number String number of account.
+	 * @return boolean Returns true if account with given number exists, returns false otherwise.
+	 * @exception NoResultException.
+	 */
 	
 	public boolean verifyAccountNumber(String number) throws NoResultException{
 		
@@ -56,6 +74,15 @@ public class DataBaseJPA implements DatabaseInterface{
 		
 		return true;
 	}
+	
+	/**
+	 * Method used to change balance of Account object by certain Integer amount with usage of EclipseLink transaction. In case of any error (any
+	 * Throwable), transaction is rolledback.
+	 * @param account Account object which balance has to be changed
+	 * @param amount Integer number by which Account object balance has to be modified.
+	 * @return boolean Returns true if operation was successful, returns false otherwise.
+	 * @exception Throwable.
+	 */
 	
 	public boolean changeBalance(Account account, int amount){
 		

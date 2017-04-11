@@ -6,6 +6,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Font;
 import pl.furman.bank_machine.BankMachine;
 
+/**
+ * Class of bankmachine numeric keypad buttons.
+ * @author Docent Furman
+ *
+ */
 public class BankNumberButton extends Button {
 
 	private int value;
@@ -18,6 +23,12 @@ public class BankNumberButton extends Button {
 		} 
 	}; 
 	
+	/**
+	 * Public constructor of BankButton. Takes Enum ButtonSigns as argument which String is drawn on button. Constructor sets font, size and
+	 * adds event handler. Also sets "choiceButton" style class for this object. Event handler takes bank machine instance and triggers its
+	 * takeAction() method with second parameter equal to button String representation of button's value. 
+	 * @param value This parameter is an integer value representing text of button and its value passed as String by its event handler.
+	 */
 	public BankNumberButton(int value){
 		
 		super();

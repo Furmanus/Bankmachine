@@ -1,3 +1,8 @@
+/**
+ * Main class of application. Most operations performed on bankmachine are defined here. Class implements singleton design pattern.
+ * @author Łukasz Lach
+ */
+
 package pl.furman.bank_machine;
 
 import pl.furman.database.DataBaseJDBC;
@@ -21,6 +26,10 @@ public class BankMachine {
 	private String examinedAmountNumber = "";
 	private int wrongPinCounter = 0;
 	
+	/**
+	 * Private constructor for BankMachine instance. Instance can be get by getInstance() method. Constructor sets instance initial state as INIT and triggers takeAction method once to load language screen
+	 * @param screenUI Object used to perform operations (write text and clear) on bankmachine screen
+	 */
 	private BankMachine(ScreenInterface screenUI){
 		
 		this.screenUI = screenUI;
@@ -28,6 +37,12 @@ public class BankMachine {
 		takeAction('a', null, null);
 	}
 	
+	/**
+	 * Bankmachine instance main function. Triggered everytime any button is pressed by user. Action performed by this method depends on instance current state
+	 * @param sign Char representing user action by pressing one of A, B, C, D buttons. Passed from event listener of BankButton object
+	 * @param number Integer representing user action performed by pressing one of numeric keys on keypad. Passed from event listener of BankNumberButton object
+	 * @param type String representing user action by pressing either "return" key or "enter" key on keypad. Passed from event listener of MiscButtons object
+	 */
 	public void takeAction(char sign, String number, String type){
 		
 		switch(state){
@@ -298,6 +313,11 @@ public class BankMachine {
 		}
 	}
 	
+	/**
+	 * Static method used to get access to BankMachine singleton instance
+	 * @param screenUI Object used to write on or clear bankmachine screen
+	 * @return BankMachine Returns instance of BankMachine singleton class. Creates new BankMachine in case it wasn't created already.
+	 */
 	public static BankMachine getInstance(ScreenInterface screenUI){
 		
 		if(instance == null){
@@ -308,12 +328,21 @@ public class BankMachine {
 		return instance;
 	}
 	
+	/**
+	 * Sets clear screen with single line of text
+	 * @param text Text that has to be drawn on screen
+	 */
 	private void setLogScreen(String text){
 			
 		screenUI.clearScreen();
 		screenUI.drawText(2, 1, text);
 	}
 	
+	/**
+	 * Method used to verify account number entered by user.
+	 * @param number String account number entered by user.
+	 * @return Returns String which is either "ok" (account with given number exists in database) or returns error message.
+	 */
 	private String verifyAccount(String number){
 		
 		if(databaseAccess.verifyAccountNumber(number) == true){
@@ -326,6 +355,10 @@ public class BankMachine {
 		return Languages.getMessages().get(chosenLanguage).get("wrongCard");
 	}
 	
+	/**
+	 * Sets exit screen after successful operation
+	 * @param text Text which has to be drawn on screen
+	 */
 	private void setExitScreen(String text){
 		
 		screenUI.clearScreen();
@@ -334,6 +367,11 @@ public class BankMachine {
 		screenUI.drawText(2, 3, Languages.getMessages().get(chosenLanguage).get("restart"));
 	}
 	
+	/**
+	 * Sets main bankmachine screen after user is successfully logged in.
+	 * @param account Examined Account object.
+	 * @param optionalText Optional text drawn on screen.
+	 */
 	private void setMainScreen(Account account, String optionalText){
 		
 		screenUI.clearScreen();
@@ -345,6 +383,9 @@ public class BankMachine {
 		screenUI.drawText(1, 6, "[c] " + Languages.getMessages().get(chosenLanguage).get("quit"));
 	}
 	
+	/**
+	 * Sets screen where user can chose amount of money to withdraw from account.
+	 */
 	private void setWithdrawScreen(){
 		
 		screenUI.clearScreen();
@@ -355,6 +396,9 @@ public class BankMachine {
 		screenUI.drawText(2, 5, "[d] " + Languages.getMessages().get(chosenLanguage).get("other"));
 	}
 	
+	/**
+	 * Sets screen where use can chose prefered language.
+	 */
 	private void setLanguageScreen(){
 		
 		screenUI.clearScreen();
@@ -363,6 +407,11 @@ public class BankMachine {
 		screenUI.drawText(1, 4, "[b]: Polski");
 	}
 	
+	/**
+	 * Method used to convert String number (like "12434") into integer
+	 * @param text String to be converted into integer number
+	 * @return int Returns converted Integer number
+	 */
 	private int getNumberFromString(String text){
 		
 		int result = 0;

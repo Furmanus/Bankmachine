@@ -1,3 +1,8 @@
+/**
+ * Enum object which contains all possible states of bankmachine
+ * @author Łukasz Lach
+ */
+
 package pl.furman.bank_machine;
 
 public enum MachineStates {

@@ -11,12 +11,23 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 
+/**
+ * MainScene class instance is a Scene containing every other components from bank machine GUI. Its root node is a border pane, which contains
+ * children nodes like VBoxes, Keypad and SceneScreen
+ * @author Docent Furman
+ *
+ */
 public class MainScene extends Scene {
 	
 	private static BorderPane borderPane = new BorderPane();
 	private SceneScreen screen = new SceneScreen();
 	private Keypad keypad = new Keypad();
 
+	/**
+	 * Public constructor. Firstly it triggers upper class Scene constructor with borderpane and size as parameters. At next step is sets up
+	 * A, B, C, D BankButton buttons in two VBox nodes of left and right side of screen. Finally it sets up SceneScreen object in center of border
+	 * pane and Keypad object at bottom
+	 */
 	public MainScene() {
 		
 		super(borderPane, 800, 600);
@@ -44,11 +55,19 @@ public class MainScene extends Scene {
 		borderPane.setRight(rightButtons);
 	}
 	
+	/**
+	 * Getter for SceneScreen screen object.
+	 * @return Returns SceneScreen screen object.
+	 */
 	public SceneScreen getScreen(){
 		
 		return screen;
 	}
 	
+	/**
+	 * Getter for Keypad keypa object.
+	 * @return Returns Keypad keypad object.
+	 */
 	public Keypad getKeypad(){
 		
 		return keypad;

@@ -4,8 +4,16 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 
+/**
+ * Keypad class avaible to user at the bottom of bankmachine. Contains numeric BankNumberButtons and MiscButtons return and enter.
+ * @author Docent Furman
+ *
+ */
 public class Keypad extends GridPane {
 	
+	/**
+	 * Public constructor. Creates appropriate buttons and places them in correct places on grid.
+	 */
 	public Keypad(){
 		
 		super();
