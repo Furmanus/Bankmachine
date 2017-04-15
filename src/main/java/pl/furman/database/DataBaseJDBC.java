@@ -14,7 +14,7 @@ import pl.furman.interfaces.DatabaseInterface;
 
 /**
  * Class used to establish connection with database via JDBC.
- * @author Docent Furman
+ * @author Łukasz Lach
  */
 public class DataBaseJDBC implements DatabaseInterface{
 

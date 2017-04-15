@@ -4,7 +4,7 @@ import pl.furman.bank_machine.Account;
 
 /**
  * Interface to database connection.
- * @author Docent Furman
+ * @author Łukasz Lach
  *
  */
 public interface DatabaseInterface {

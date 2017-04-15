@@ -2,7 +2,7 @@ package pl.furman.exceptions;
 
 /**
  * Exception for adding money to account.
- * @author Docent Furman
+ * @author Łukasz Lach
  *
  */
 public class AddMoneyException extends Exception {

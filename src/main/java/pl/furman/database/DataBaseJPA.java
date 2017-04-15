@@ -26,7 +26,7 @@ import pl.furman.interfaces.DatabaseInterface;
 
 /**
  * Class used to establish database connection via EclipseLink.
- * @author Docent Furman
+ * @author Łukasz Lach
  *
  */
 

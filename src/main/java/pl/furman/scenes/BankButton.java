@@ -8,7 +8,7 @@ import pl.furman.bank_machine.BankMachine;
 
 /**
  * Class of bankmachine A, B, C, D buttons.
- * @author Docent Furman
+ * @author Łukasz Lach
  *
  */
 public class BankButton extends Button {

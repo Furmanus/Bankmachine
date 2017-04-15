@@ -6,7 +6,7 @@ import javafx.scene.text.Text;
 
 /**
  * Object of this class is a bank machine screen where all information are drawn. Screen itself is a simple GridPane object.
- * @author Docent Furman
+ * @author Łukasz Lach
  *
  */
 public class SceneScreen extends GridPane {

@@ -5,12 +5,16 @@ import javafx.stage.Stage;
 import pl.furman.interfaces.ScreenInterface;
 import pl.furman.scenes.MainScene;
 
+/**
+ * Init class responsible for launching application and initializing {@code Stage} and {@code Scene} mainScene object.
+ * @author Łukasz Lach
+ *
+ */
 public class App extends Application {
 	
     public static void main( String[] args ){
     	
     	launch(args);
-    	//BankMachine bank = BankMachine.getInstance();
     }
 
 	@Override

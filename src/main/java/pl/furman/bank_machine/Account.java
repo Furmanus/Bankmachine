@@ -1,9 +1,3 @@
-/**
- * Class which objects represents rows from database
- * @author Łukasz Lach
- * @version 1.0
- */
-
 package pl.furman.bank_machine;
 
 import java.io.FileWriter;
@@ -24,6 +18,11 @@ import pl.furman.exceptions.AddMoneyException;
 import pl.furman.exceptions.WithdrawException;
 import pl.furman.interfaces.DatabaseInterface;
 
+/**
+ * Class which objects represents rows from database
+ * @author Łukasz Lach
+ * @version 1.0
+ */
 @Entity
 @Table(name = "accounts")
 public class Account {

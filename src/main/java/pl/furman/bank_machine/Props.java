@@ -1,8 +1,3 @@
-/**
- * Class representing properties used to establish connection to database by JDBC. Has one private field, Properties object which has three properties: host, username and password
- * @author Łukasz Lach
- */
-
 package pl.furman.bank_machine;
 
 import java.io.FileInputStream;
@@ -12,6 +7,10 @@ import java.io.ObjectInputStream;
 import java.security.AccessControlContext;
 import java.util.Properties;
 
+/**
+ * Class representing properties used to establish connection to database by JDBC. Has one private field, Properties object which has three properties: host, username and password
+ * @author Łukasz Lach
+ */
 public class Props {
 
 	private Properties access;

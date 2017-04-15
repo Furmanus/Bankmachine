@@ -2,7 +2,7 @@ package pl.furman.interfaces;
 
 /**
  * Interface for ScreenUI class.
- * @author Docent Furman
+ * @author Łukasz Lach
  *
  */
 public interface ScreenInterface {

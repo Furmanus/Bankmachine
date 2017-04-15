@@ -1,8 +1,3 @@
-/**
- * Main class of application. Most operations performed on bankmachine are defined here. Class implements singleton design pattern.
- * @author Łukasz Lach
- */
-
 package pl.furman.bank_machine;
 
 import pl.furman.database.DataBaseJDBC;
@@ -13,6 +8,10 @@ import pl.furman.interfaces.DatabaseInterface;
 import pl.furman.interfaces.ScreenInterface;
 import pl.furman.languages.Languages;
 
+/**
+ * Main class of application. Most operations performed on bankmachine are defined here. Class implements singleton design pattern.
+ * @author Łukasz Lach
+ */
 public class BankMachine {
 
 	private static BankMachine instance = null;

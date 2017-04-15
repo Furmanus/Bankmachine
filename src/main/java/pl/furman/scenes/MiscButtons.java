@@ -8,7 +8,7 @@ import pl.furman.bank_machine.BankMachine;
 
 /**
  * Class which object can be button of two types: either "return" (which cancels user input on screen) and "enter" (which confirms user input).
- * @author Docent Furman
+ * @author Łukasz Lach
  *
  */
 public class MiscButtons extends Button {

@@ -2,7 +2,7 @@ package pl.furman.scenes;
 
 /**
  * Enum type of letters used in BankButton class.
- * @author Docent Furman
+ * @author Łukasz Lach
  *
  */
 public enum ButtonSigns {

@@ -5,7 +5,7 @@ import java.util.HashMap;
 /**
  * Abstract class which contains HashMap which keys are languages used in application. Each language is another HashMap which contains messages
  * identified by String key in different languages.
- * @author Docent Furman
+ * @author Łukasz Lach
  *
  */
 public abstract class Languages {

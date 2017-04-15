@@ -14,7 +14,7 @@ import javafx.scene.text.TextFlow;
 /**
  * MainScene class instance is a Scene containing every other components from bank machine GUI. Its root node is a border pane, which contains
  * children nodes like VBoxes, Keypad and SceneScreen
- * @author Docent Furman
+ * @author Łukasz Lach
  *
  */
 public class MainScene extends Scene {

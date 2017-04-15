@@ -8,7 +8,7 @@ import pl.furman.bank_machine.BankMachine;
 
 /**
  * Class of bankmachine numeric keypad buttons.
- * @author Docent Furman
+ * @author Łukasz Lach
  *
  */
 public class BankNumberButton extends Button {
