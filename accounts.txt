@@ -1,8 +1,3 @@
-CREATE TABLE accounts
-(
-   id        INTEGER DEFAULT nextval ('account_seq'::regclass),
-   owner     text,
-   number    text,
-   pin       text,
-   balance   integer
-)
+account number: 87654321, pin: 8765
+account number: 11111111, pin: 1111
+account number: 12345678, pin: 1234

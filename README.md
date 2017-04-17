@@ -1,7 +1,3 @@
-Application simulating bank machine written in Java with JDBC/JPA. App requires user to have local database with following settings:
+Application simulating bank machine written in Java with JDBC/JPA. App uses and connects to online database hosted by ElephantSQL (https://www.elephantsql.com/).
 
-- url: jdbc:postgresql://localhost/bankmachine
-- username: codeme
-- password: 12345
-
-Data table has to contain columns as set in file accounts.txt
+Accounts number and corresponding PIN numbers are written in file accounts.txt

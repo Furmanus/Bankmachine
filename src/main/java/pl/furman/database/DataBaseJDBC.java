@@ -33,7 +33,7 @@ public class DataBaseJDBC implements DatabaseInterface{
 		try {
 			Class.forName("org.postgresql.Driver");
 			
-			Connection connect = DriverManager.getConnection(access.getProperty("host"), access.getProperty("user"), access.getProperty("password"));
+			Connection connect = DriverManager.getConnection(access.getProperty("host"), access.getProperty("username"), access.getProperty("password"));
 			PreparedStatement pstmt = connect.prepareStatement("SELECT * FROM accounts WHERE number = ?");
 			pstmt.setString(1, number);
 			
@@ -67,7 +67,7 @@ public class DataBaseJDBC implements DatabaseInterface{
 		
 		try {
 			Class.forName("org.postgresql.Driver");
-			Connection connect = DriverManager.getConnection(access.getProperty("host"), access.getProperty("user"), access.getProperty("password"));
+			Connection connect = DriverManager.getConnection(access.getProperty("host"), access.getProperty("username"), access.getProperty("password"));
 			PreparedStatement pstmt = connect.prepareStatement("SELECT number FROM accounts WHERE number = ?");
 			pstmt.setString(1, number);
 			
@@ -108,7 +108,7 @@ public class DataBaseJDBC implements DatabaseInterface{
 		
 		try {
 			Class.forName("org.postgresql.Driver");
-			Connection connect = DriverManager.getConnection(access.getProperty("host"), access.getProperty("user"), access.getProperty("password"));
+			Connection connect = DriverManager.getConnection(access.getProperty("host"), access.getProperty("username"), access.getProperty("password"));
 			int updatedAmount = account.getBalance() + amount;
 			PreparedStatement pstmt = connect.prepareStatement("UPDATE accounts SET balance = ?" + " WHERE owner = ?");
 			pstmt.setInt(1, updatedAmount);

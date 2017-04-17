@@ -8,17 +8,19 @@
 
 		<properties>
 			
+			<!-- 
 			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
 			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost/bankmachine" />
 			<property name="javax.persistence.jdbc.user" value="codeme" />
 			<property name="javax.persistence.jdbc.password" value="12345" /> 
+			-->
 		
-			<!-- 
+			
 			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:postgres://sxhbifhl:j1P3LdUnfz6qlubsctdMyr8bHLC82ZCt@horton.elephantsql.com:5432/sxhbifhl" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://horton.elephantsql.com:5432/sxhbifhl" />
 			<property name="javax.persistence.jdbc.user" value="sxhbifhl" />
 			<property name="javax.persistence.jdbc.password" value="j1P3LdUnfz6qlubsctdMyr8bHLC82ZCt" />
-			 -->
+			 
 			
 
 			<!-- EclipseLink should create the database schema automatically -->

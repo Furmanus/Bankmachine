@@ -1,5 +1,9 @@
 package pl.furman.bank_machine;
 
+import java.util.List;
+import java.util.Properties;
+import java.util.Set;
+
 import javafx.application.Application;
 import javafx.stage.Stage;
 import pl.furman.interfaces.ScreenInterface;

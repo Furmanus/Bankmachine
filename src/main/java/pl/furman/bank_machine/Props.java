@@ -2,8 +2,10 @@ package pl.furman.bank_machine;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.security.AccessControlContext;
 import java.util.Properties;
 
@@ -40,7 +42,7 @@ public class Props {
 	}
 	
 	/**
-	 * Method used to set new properties in private access field.
+	 * Method used to set new properties in private access field. Also writes changed properties into file "access.properties".
 	 * @param host Name of host.
 	 * @param username Name of user.
 	 * @param password Password
@@ -50,6 +52,18 @@ public class Props {
 		access.setProperty("host", host);
 		access.setProperty("username", username);
 		access.setProperty("password", password);
+		
+		try {
+			ObjectOutputStream write = new ObjectOutputStream(new FileOutputStream("access.properties"));
+			write.writeObject(access);
+			write.close();
+		} catch (FileNotFoundException e) {
+			
+			e.printStackTrace();
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
 	}
 	
 	/**
